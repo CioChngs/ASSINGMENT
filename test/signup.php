@@ -8,15 +8,17 @@ try {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $username = $_POST['username'];
         $email = $_POST['email'];
-        $phone = $_POST['phone']; 
-        $password = $_POST['password']; 
+        $phone = $_POST['phone'];
+        $password = $_POST['password'];
+
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
         $stmt = $pdo->prepare("INSERT INTO Customer (username, email, phone_number, password) VALUES (:username, :email, :phone, :password)");
 
         $stmt->bindParam(':username', $username);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':phone', $phone);
-        $stmt->bindParam(':password', $password);
+        $stmt->bindParam(':password', $hashed_password);
         $stmt->execute();
 
         echo "User registered successfully!";
