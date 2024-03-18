@@ -68,14 +68,17 @@
           />
           <label for="email" class="mt-1">Phone Number</label>
           <input
-            id="phone"
-            name="phone"
-            type="number"
-            style="width: 300px"
-            class="form-control bg-transparent border-primary p-4"
-            placeholder="Phone number"
-            required
+          id="phone"
+          name="phone"
+          type="text"
+          style="width: 300px"
+          class="form-control bg-transparent border-primary p-4"
+          placeholder="Phone number"
+          pattern="[0-9]+"
+          title="Please enter only numbers"
+          required
           />
+
           <label for="password" class="mt-1">Password</label>
           <input
             id="password"
